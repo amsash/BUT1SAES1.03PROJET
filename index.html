@@ -16,14 +16,16 @@
             <ul class="navbar-nav me-auto">
                 <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
                 <li class="nav-item"><a class="nav-link" href="rapport.html">Dossier</a></li>
-                <li class="nav-item"><a class="nav-link" href="gantt.html">Gantt</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
 <main class="container" style="margin-top:80px;">
-    <header><h1>Installation d’un poste pour le développement — Gr2 Binome102</h1></header>
+    <header>
+        <h1>Installation d’un poste pour le développement — Gr2 Binome102</h1>
+        <h2>Accueil</h2>
+    </header>
     <section>
         <hr>
         <h2>Explaination</h2>
@@ -32,9 +34,35 @@
     <!-- add sections: virtualisation, choices, screenshots, how-to, conclusions -->
     <section>
         <hr>
-        <h2>Virtualisation</h2>
+        <h2>What is a virtual machine?</h2>
+        <p>A virtual machine is a software-based computer that runs inside a physical machine.</p>
+        <p>It uses shared hardware resources such as the processor, memory, and storage, while behaving like an independent computer with its own operating system.</p></p>
+        <video width="400" controls>
+            <source src="images/SAE-S103-SHAW.mp4" type="video/mp4">
+            Your browser does not support HTML video.
+        </video>
 
+        <h2>How is a virtual machine deployed?</h2>
+        <p>A virtual machine is deployed using virtualization software called a hypervisor.</p>
+        <p>In this project, VirtualBox is used to create and configure the virtual machine, install a Linux operating system, and run services such as a web server.</p></p>
+        <p>This approach allows testing, development, and learning in an isolated and secure environment.</p>
     </section>
+    <section>
+        <hr>
+        <h2>SAE S1.03 Tasks</h2>
+        <p>The objective of this project is to discover virtualization technologies by installing and configuring a complete development environment on a virtual machine.</p>
+        <p>Through this project, the goal is to understand:</p>
+        <ul>
+            <li>Which OS to choose for the task</li>
+            <li>Which hypervisor to choose for the task</li>
+            <li>How to set up a virtual machine locally</li>
+            <li>How to set up multiple user accounts on said virtual machine</li>
+            <li>How to host a website locally through the virtual machine</li>
+        </ul>
+        <p>while this does go over the basic concepts and tasks, there exists a more in depth explanation, to see that head to the <a href="rapport.html">Dossier</a> page</p>
+    </section>
+
+
 </main>
 
 <footer class="footer bg-light text-center py-3">

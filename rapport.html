@@ -29,116 +29,116 @@
     <section>
         <hr>
         <h2>1. Introduction</h2>
-        <p>The objective of this SAE is to understand and use virtualization technologies in order to install a development workstation.</p>
-        <p>The project consists of creating a virtual machine, installing a Linux operating system, configuring user accounts, setting up a web server, and publishing the project report on this server.</p>
-        <p>The tools used in this project are:</p>
+        <p>L'objectif de ce SAE est de comprendre et d'utiliser les technologies de virtualisation afin d'installer un poste de travail de développement.</p>
+        <p>Le projet consiste à créer une machine virtuelle, à installer un système d'exploitation Linux, à configurer des comptes utilisateurs, à mettre en place un serveur web et à publier le rapport de projet sur ce serveur.</p>
+        <p>Les outils utilisés dans ce projet sont les suivants :</p>
         <ul>
-            <li>VirtualBox for virtualization</li>
-            <li>Ubuntu Linux as the operating system</li>
-            <li>Apache as the web server</li>
-            <li>WebStorm for web development and deployment (with the help of GitHub)</li>
+            <li>VirtualBox pour la virtualisation</li>
+            <li>Ubuntu Linux comme système d'exploitation</li>
+            <li>Apache comme serveur web</li>
+            <li>WebStorm pour le développement et le déploiement web (avec l'aide de GitHub)</li>
         </ul>
     </section>
     <section>
         <hr>
-        <h2>2. Virtualization Concepts</h2>
-        <h4>Definition of virtualization</h4>
-        <p>Virtualization is a technology that allows multiple operating systems to run on the same physical machine by sharing hardware resources such as CPU, memory, and storage.</p>
-        <h4>Emulator, simulator, and virtual machine</h4>
+        <h2>2. Concepts de virtualisation</h2>
+        <h4>Définition de la virtualisation</h4>
+        <p>La virtualisation est une technologie qui permet à plusieurs systèmes d'exploitation de fonctionner sur la même machine physique en partageant des ressources matérielles telles que le processeur, la mémoire et le stockage.</p>
+        <h4>Émulateur, simulateur et machine virtuelle</h4>
         <ul>
-            <li>Emulator: Reproduces both hardware and software of another system (slow, used for compatibility).</li>
-            <li>Simulator: Simulates behavior for testing or training purposes.</li>
-            <li>Virtual machine: Runs a guest operating system using the host’s hardware via a hypervisor.</li>
+            <li>Émulateur : reproduit à la fois le matériel et les logiciels d'un autre système (lent, utilisé pour des raisons de compatibilité).</li>
+            <li>Simulateur : simule un comportement à des fins de test ou de formation.</li>
+            <li>Machine virtuelle : exécute un système d'exploitation invité à l'aide du matériel de l'hôte via un hyperviseur.</li>
         </ul>
-        <h4>Type of virtualization used</h4>
-        <p>In this project, a hosted (type 2) hypervisor was used.</p>
-        <p>VirtualBox runs on top of the host operating system and manages the virtual machine.</p>
+        <h4>Type de virtualisation utilisé</h4>
+        <p>Dans ce projet, un hyperviseur hébergé (type 2) a été utilisé.</p>
+        <p>VirtualBox s'exécute au-dessus du système d'exploitation hôte et gère la machine virtuelle.</p>
     </section>
     <section>
         <hr>
-        <h2>3. Virtual Machine Setup</h2>
-        <h4>Host environment</h4>
+        <h2>3. Configuration de la machine virtuelle</h2>
+        <h4>Environnement hôte</h4>
         <ul>
-            <li>Host operating system: Windows 11</li>
-            <li>Virtualization software: VirtualBox</li>
+            <li>Système d'exploitation hôte : Windows 11</li>
+            <li>Logiciel de virtualisation : VirtualBox</li>
         </ul>
-        <p>VirtualBox was chosen because it is free, easy to use, and supports snapshots and shared folders.</p>
-        <h4>Virtual machine configuration</h4>
-        <p>The virtual machine was configured with the following parameters:</p>
+        <p>VirtualBox a été choisi car il est gratuit, facile à utiliser et prend en charge les instantanés et les dossiers partagés.</p>
+        <h4>Configuration de la machine virtuelle</h4>
+        <p>La machine virtuelle a été configurée avec les paramètres suivants :</p>
         <ul>
-            <li>Operating system: Ubuntu 22.04 LTS</li>
-            <li>RAM: 4 GB</li>
-            <li>CPU: 1 core</li>
-            <li>Storage: 35 GB</li>
+            <li>Système d'exploitation : Ubuntu 22.04 LTS</li>
+            <li>RAM: 4 Go</li>
+            <li>Processeur : 1 cœur</li>
+            <li>Storage: 35 Go</li>
         </ul>
-        <p>These values were chosen to ensure good performance while keeping resource usage reasonable.</p>
+        <p>Ces valeurs ont été choisies afin de garantir de bonnes performances tout en maintenant une utilisation raisonnable des ressources.</p>
         <img src="images/VirtualBoxSettings1.png" class="img-fluid" alt="Responsive image">
         <img src="images/VirtualBoxSettings2.png" class="img-fluid" alt="Responsive image">
     </section>
     <section>
         <hr>
-        <h2>4. Network Configuration</h2>
-        <h4>Network mode choice</h4>
-        <p>The virtual machine uses NAT with port forwarding.</p>
-        <p>This choice was made because the host computer is connected to a shared apartment Wi-Fi network, which may block direct communication between devices.</p>
-        <h4>Port forwarding</h4>
-        <p>Port forwarding was configured as follows:</p>
+        <h2>4. Configuration réseau</h2>
+        <h4>Choix du mode réseau</h4>
+        <p>La machine virtuelle utilise NAT avec redirection de port.</p>
+        <p>Ce choix a été fait car l'ordinateur hôte est connecté à un réseau Wi-Fi partagé dans un appartement, qui peut bloquer la communication directe entre les appareils.</p>
+        <h4>Redirection de port</h4>
+        <p>La redirection de port a été configurée comme suit :</p>
         <ul>
-            <li>Host port: 8080</li>
-            <li>Guest port: 80</li>
+            <li>Port hôte : 8080</li>
+            <li>Port invité : 80</li>
         </ul>
-        <p>This allows access to the web server from the host machine using:</p>
+        <p>Cela permet d'accéder au serveur web depuis la machine hôte à l'aide de :</p>
         <p>http://localhost:8080</p>
         <img src="images/PortForwarding.png" class="img-fluid" alt="Responsive image">
     </section>
     <section>
         <hr>
-        <h2>5. Linux System and User Management</h2>
-        <h4>Operating system choice</h4>
-        <p>Ubuntu Linux was chosen for its stability, security, and large community support.</p>
-        <h4>User and group creation</h4>
-        <p>The following users and group were created:</p>
+        <h2>5. Gestion du système Linux et des utilisateurs</h2>
+        <h4>Choix du système d'exploitation</h4>
+        <p>Ubuntu Linux a été choisi pour sa stabilité, sa sécurité et le soutien important de sa communauté.</p>
+        <h4>Création d'utilisateurs et de groupes</h4>
+        <p>Les utilisateurs et groupes suivants ont été créés :</p>
         <ul>
-            <li>Administrator: admin_gr2_binome102</li>
-            <li>Users: binome102_1, binome102_2</li>
-            <li>Group: binome102</li>
+            <li>Administrateurs: admin_gr2_binome102</li>
+            <li>Utilisateurs: binome102_1, binome102_2</li>
+            <li>Groupe: binome102</li>
         </ul>
-        <p>Lowercase usernames were used to comply with Linux naming conventions.</p>
+        <p>Les noms d'utilisateur en minuscules ont été utilisés afin de respecter les conventions de nommage Linux.</p>
         <img src="images/UsersAndGroups.png" class="img-fluid" alt="Responsive image">
     </section>
     <section>
         <hr>
-        <h2>6. Web Server Installation and Configuration</h2>
-        <h4>Apache installation</h4>
-        <p>The Apache web server was installed using the system package manager.</p>
-        <p>The service was enabled and started automatically.</p>
+        <h2>6. Installation et configuration du serveur Web</h2>
+        <h4>Installation d'Apache</h4>
+        <p>Le serveur web Apache a été installé à l'aide du gestionnaire de paquets du système.</p>
+        <p>Le service a été activé et démarré automatiquement.</p>
         <img src="images/ApacheInstall.png" class="img-fluid" alt="Responsive image">
-        <h4>Virtual host configuration</h4>
-        <p>A dedicated virtual host was created to serve the project website.</p>
-        <p>The document root points to the project directory containing the HTML files.</p>
-        <h4>HTTP access</h4>
-        <p>The website is served using HTTP on port 80.</p>
+        <h4>Configuration de l'hôte virtuel</h4>
+        <p>Un hôte virtuel dédié a été créé pour héberger le site web du projet.</p>
+        <p>La racine du document pointe vers le répertoire du projet contenant les fichiers HTML.</p>
+        <h4>accès HTTP</h4>
+        <p>Le site web est accessible via HTTP sur le port 80.</p>
         <img src="images/WebpagePreview.png" class="img-fluid" alt="Responsive image">
     </section>
     <section>
         <hr>
-        <h2>7. Website Development and Deployment</h2>
-        <h4>Technologies used</h4>
+        <h2>7. Développement et déploiement de sites Web</h2>
+        <h4>Technologies utilisées</h4>
         <ul>
-            <li>HTML5 with semantic tags</li>
-            <li>Bootstrap 5 for layout and responsiveness</li>
+            <li>HTML5 avec balises sémantiques</li>
+            <li>Bootstrap 5 pour la mise en page et la réactivité</li>
         </ul>
-        <h4>Deployment method</h4>
-        <p>A GitHub repo was used to share the website markup code between the host machine and the virtual machine.</p>
-        <p>This method was chosen for its simplicity and reliability.</p>
+        <h4>Méthode de déploiement</h4>
+        <p>Un dépôt GitHub a été utilisé pour partager le code de balisage du site Web entre la machine hôte et la machine virtuelle.</p>
+        <p>Cette méthode a été choisie pour sa simplicité et sa fiabilité.</p>
         <img src="images/GithubPreview.png" class="img-fluid" alt="Responsive image">
     </section>
     <section>
         <hr>
         <h2>8. Conclusion</h2>
-        <p>This project made it possible to understand how virtualization works and how to configure a complete development environment.</p>
-        <p>Practical skills were acquired in Linux system administration, networking, and web server configuration.</p>
-        <p>This SAE provided a solid introduction to real-world deployment and troubleshooting scenarios.</p>
+        <p>Ce projet a permis de comprendre le fonctionnement de la virtualisation et la configuration d'un environnement de développement complet.</p>
+        <p>Des compétences pratiques ont été acquises en administration de systèmes Linux, en mise en réseau et en configuration de serveurs web.</p>
+        <p>Ce SAE a fourni une introduction solide aux scénarios réels de déploiement et de dépannage.</p>
     </section>
 </main>
 
